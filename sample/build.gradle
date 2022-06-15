@@ -1,0 +1,37 @@
+apply plugin: 'com.android.application'
+apply plugin: 'org.jetbrains.kotlin.android'
+
+android {
+  compileSdkVersion rootProject.ext.compileSdkVersion
+
+  defaultConfig {
+    applicationId "com.cooler.downloadsample"
+    minSdkVersion rootProject.ext.minSdkVersion
+    targetSdkVersion rootProject.ext.targetSdkVersion
+    versionCode 1
+    versionName "1.0"
+  }
+
+  buildTypes {
+    release {
+      minifyEnabled false
+      proguardFiles 'proguard-rules.pro'
+    }
+  }
+
+  compileOptions {
+    sourceCompatibility JavaVersion.VERSION_1_8
+    targetCompatibility JavaVersion.VERSION_1_8
+  }
+
+  lintOptions {
+    abortOnError false
+  }
+}
+
+dependencies {
+  implementation rootProject.ext.appcompat
+  implementation rootProject.ext.okHttp3
+  implementation rootProject.ext.loggingInterceptor
+  implementation project(':library')
+}
